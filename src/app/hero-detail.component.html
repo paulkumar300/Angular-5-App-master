@@ -1,0 +1,10 @@
+<div *ngIf="hero" class="col-md-6 hero-d1" >
+  <h2>{{hero.name}} details!</h2>
+  <div>
+    <label>Id: </label>{{hero.id}}</div>
+  <div>
+    <label>Name: </label>
+    {{hero.name}}
+  </div>
+  <button class="btn btn-primary hero-d2"  (click)="goBack()">Back</button>
+</div>

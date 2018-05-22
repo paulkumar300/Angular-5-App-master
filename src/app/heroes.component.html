@@ -1,0 +1,29 @@
+<h2 class="hero-list">Heroes List</h2>
+<div class="hero-1" >
+</div>
+<div class="col-md-12">
+  <div class="col-md-7" >
+    <ul class="heroes"  >
+      <button class="btn" (click)="showForm = true"  class="btn btn-primary hero-btn">Add Heroes</button>
+      <label class="hero-2 "> {{ notifyMessage }} </label>
+      <li *ngFor="let hero of heroes" [class.selected]="hero === selectedHero" (click)="onSelect(hero)" style="height:40px">
+        <span class="" style="padding-left:30px;"> {{hero.name}} </span>
+        <button class="btn" (click)="removeHeroes(hero)"   class="btn btn-danger hero-d">Delete</button>
+      </li>
+    </ul>
+  </div>
+  <div class="col-md-5 hero-3" *ngIf="showForm">
+    <form>
+      <label  class="hero-4">Name : </label>
+      <input type="text" class="form-control" name="test" #test="ngModel" [(ngModel)]="heroName"/>
+      <br>
+      <button class="btn btn-success"  (click)="addHeroes()">Submit</button>
+    </form>
+  </div>
+</div>
+<div *ngIf="selectedHero" class="hero-5">
+  <h2>
+    {{selectedHero.name | uppercase}} is my hero
+  </h2>
+  <button class="btn btn-primary"  (click)="gotoDetail()">View Details</button>
+</div>
